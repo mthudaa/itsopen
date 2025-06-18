@@ -1,2 +1,116 @@
-# itsopen
-Unified installer manager and project manager application specifically designed for OpenEDA
+Got it! I'll add a clear reference to Open Circuit Design in the `README.md` to specify the origin of some of the tools.
+
+---
+
+# itsopen Project (GTK 4 GUI Application)
+
+---
+
+**itsopen** is a **unified installer manager and project manager** application specifically designed for **OpenEDA tools in IC design**. This project was developed as part of the **Semiconductor Devices and Integrated Circuits** course at the **Department of Electrical Engineering, Institut Teknologi Sepuluh Nopember (ITS)**. Its goal is to simplify the management and installation of various OpenEDA tools, as well as assist in IC design project management, thereby streamlining the learning and development process in this field.
+
+---
+
+## Prerequisites
+
+Before you can build and run this application, make sure you have the following prerequisites installed on your system:
+
+* **GCC (GNU Compiler Collection):** The standard C compiler.
+* **GTK 4 Development Libraries:** GTK 4 development libraries, including the necessary headers and library files for compilation.
+* **pkg-config:** A utility that helps manage compilation and linking options for libraries.
+
+You can install GTK 4 and other prerequisites on Debian/Ubuntu-based systems with the following commands:
+
+```bash
+sudo apt update
+sudo apt install build-essential libgtk-4-dev pkg-config
+```
+
+---
+
+## Key Features
+
+### Supported OpenEDA Packages
+
+The **itsopen** application is designed to help install and manage various essential OpenEDA tools in the IC design workflow. Many of these tools originate from the **Open Circuit Design** project (opencircuitdesign.com). Some key packages that can be installed through this application include:
+
+* **Xschem:** A lightweight and flexible open-source schematic editor, used for drawing and editing circuit diagrams.
+* **ngspice:** A powerful open-source SPICE circuit simulator, essential for analog and mixed-signal simulations.
+* **Magic VLSI Layout Tool:** A popular and robust VLSI layout editor, used for the physical design of integrated circuits.
+* **Netgen:** A tool for generating netlists from layouts or vice-versa, and for LVS (Layout Versus Schematic) verification, ensuring consistency between schematic and layout.
+
+### Available PDKs (Process Design Kits)
+
+To support the IC design process, **itsopen** also provides the capability to manage and use various open-source PDKs. These PDKs are essential for designing integrated circuits according to specific manufacturing processes. Supported PDKs include:
+
+* **SkyWater SKY130:** A popular open-source 130nm PDK supported by Google. It's a great starting point for open-source IC design.
+* **GlobalFoundries GF180MCU:** A 180nm PDK for GlobalFoundries' Microcontroller Unit (MCU) process, offering another option for older but still relevant chip designs.
+
+---
+
+## Usage Instructions
+
+Follow the steps below to build, install, and clean the `itsopen` project.
+
+### 1. Building the Project
+
+Navigate to the project's root directory in your terminal, then run `make` to compile the source code:
+
+```bash
+cd itsopen/
+make
+```
+
+This command will compile all `.c` source files from the `src/` directory and generate an executable named **`itsopen`** in the main project directory.
+
+### 2. Running the Application (After Building)
+
+Once successfully built, you can run the application directly from the project directory with the command:
+
+```bash
+./itsopen
+```
+
+### 3. Installation
+
+You can install this application to your system so it can be run from anywhere in the terminal. The installation process will place the executable and supporting files under the `/usr/local/` directory hierarchy. The `install` target will also install some additional dependencies and copy associated scripts.
+
+**Important:** This command requires *root* privileges (`sudo`).
+
+```bash
+sudo make install
+```
+
+This command will perform the following:
+1.  Install additional dependencies required by the project (such as `libxpm-dev`, `m4`, `libx11-dev`, `tcl-dev`, `tk-dev`, `libcairo2-dev`, `mesa-common-dev`, `libglu1-mesa-dev`).
+2.  Copy the `itsopen` executable to **`/usr/local/bin/`**, allowing you to run it from anywhere.
+3.  Create the directory **`/usr/local/share/itsopen/`**.
+4.  Copy all content from the project's `script/` directory to **`/usr/local/share/itsopen/`**.
+
+Once the installation is complete, you can run the application simply by typing:
+
+```bash
+itsopen
+```
+
+### 4. Cleaning the Project
+
+To remove the generated executable file and clean the project directory, use the `clean` target:
+
+```bash
+make clean
+```
+
+This command will remove the `itsopen` file from your project directory.
+
+---
+
+## Contributor
+
+This package was created by:
+
+**M Taufiqul Huda**
+Email: muhammadhuda1025@gmail.com
+
+---
+
+*This README.md was automatically generated by an AI assistant based on provided specifications.*
